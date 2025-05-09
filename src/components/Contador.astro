@@ -1,0 +1,87 @@
+---
+
+---
+<section class="flex items-center justify-center bg-gradient-to-br from-pink-50 to-purple-100 px-4">
+    <div class="max-w-4xl w-full bg-white/80 backdrop-blur-sm rounded-xl shadow-xl p-6">
+      <h2 class="text-2xl font-semibold text-center text-purple-800 mb-6">
+        Hemos estado juntos por:
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-center">
+        <div class="bg-pink-100 rounded-lg p-4">
+          <div id="años" class="text-3xl md:text-5xl font-bold text-pink-600">0</div>
+          <div class="text-purple-700">Años</div>
+        </div>
+        <div class="bg-pink-100 rounded-lg p-4">
+          <div id="meses" class="text-3xl md:text-5xl font-bold text-pink-600">0</div>
+          <div class="text-purple-700">Meses</div>
+        </div>
+        <div class="bg-pink-100 rounded-lg p-4">
+          <div id="dias" class="text-3xl md:text-5xl font-bold text-pink-600">0</div>
+          <div class="text-purple-700">Días</div>
+        </div>
+        <div class="bg-pink-100 rounded-lg p-4">
+          <div id="hours" class="text-3xl md:text-5xl font-bold text-pink-600">0</div>
+          <div class="text-purple-700">Horas</div>
+        </div>
+        <div class="bg-pink-100 rounded-lg p-4">
+          <div id="minutes" class="text-3xl md:text-5xl font-bold text-pink-600">0</div>
+          <div class="text-purple-700">Minutos</div>
+        </div>
+        <div class="bg-pink-100 rounded-lg p-4 col-span-2 sm:col-span-1 md:col-span-1">
+          <div id="seconds" class="text-3xl md:text-5xl font-bold text-pink-600">0</div>
+          <div class="text-purple-700">Segundos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+<style>
+   
+    </style>
+  
+   <style>
+
+        </style>
+        <script>
+            function updateCounter() {
+                const now = new Date();
+                const diff = now.getTime() - new Date("2022-01-09").getTime();
+                const años = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+                const meses = Math.floor(
+                    (diff % (1000 * 60 * 60 * 24 * 365)) /
+                        (1000 * 60 * 60 * 24 * 30),
+                );
+               
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor(
+                    (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+                );
+                const minutes = Math.floor(
+                    (diff % (1000 * 60 * 60)) / (1000 * 60),
+                );
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                const añosElement = document.getElementById("años");
+                if (añosElement) añosElement.innerText = años.toString();
+                const mesesElement = document.getElementById("meses");
+                if (mesesElement) mesesElement.innerText = meses.toString();
+            
+
+                const secondsElement = document.getElementById("seconds");
+                if (secondsElement)
+                    secondsElement.innerText = (seconds % 60).toString();
+
+                const minutesElement = document.getElementById("minutes");
+                if (minutesElement)
+                    minutesElement.innerText = (minutes % 60).toString();
+
+                const hoursElement = document.getElementById("hours");
+                if (hoursElement)
+                    hoursElement.innerText = (hours % 24).toString();
+
+                const daysElement = document.getElementById("dias");
+                if (daysElement) daysElement.innerText = days.toString();
+            }
+
+            setInterval(updateCounter, 1000);
+        </script>
+    </section>
+</section>
