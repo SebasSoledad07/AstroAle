@@ -1,35 +1,64 @@
 ---
+
 ---
-<section class="py-8 px-4 mb-12">
-    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-      <button 
-        id="music-btn"
-        class="flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white p-4 rounded-xl"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-        </svg>
-        <span id="music-text">Reproducir Música</span>
-      </button>
-      
-      <button 
-        id="love-btn"
-        class="flex items-center justify-center gap-2 bg-pink-500 hover:bg-pink-600 text-white p-4 rounded-xl"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-        </svg>
-        Enviar Amor
-      </button>
-      
-      <button 
-        id="surprise-btn"
-        class="flex items-center justify-center gap-2 bg-purple-500 hover:bg-purple-600 text-white p-4 rounded-xl"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-        </svg>
-        Sorpresa
+<section class="text-center my-10">
+    
+    <div id="message-container">
+      <button id="reveal-btn" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-xl">
+        Revelar Mensaje Especial
       </button>
     </div>
+    
+    <div id="special-message" class="hidden text-purple-800 text-xl mt-6 flex flex-col items-center justify-center">
+      <p class="mb-4">
+        ✨ Siempre estaré contigo, mi amor. Gracias por estos momentos tan hermosos. 💖
+      </p>
+    </div>
   </section>
+
+  <section class="text-center my-10">
+  <a href="https://www.youtube.com/watch?v=iRi4_Yq--Ok" target="_blank" rel="noopener noreferrer">
+  <button class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl">
+    Escuchala mi amor 🍺
+  </button>
+</a>
+  </section>
+  <style>
+    @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+  </style>
+
+<script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      const revealBtn = document.getElementById('reveal-btn');
+      const messageContainer = document.getElementById('message-container');
+      const specialMessage = document.getElementById('special-message');
+  
+      if (revealBtn && messageContainer && specialMessage) {
+        revealBtn.addEventListener('click', () => {
+          messageContainer.classList.add('hidden');
+          specialMessage.classList.remove('hidden');
+          specialMessage.classList.add('animate-fadeIn');
+        });
+      }
+    });
+    const musicBtn = document.getElementById('music-btn');
+  const player = document.getElementById('youtube-player');
+
+  musicBtn.addEventListener('click', () => {
+    player.src = 'https://www.youtube.com/watch?v=iRi4_Yq--Ok';
+    player.classList.remove('hidden');
+  });
+  </script>
